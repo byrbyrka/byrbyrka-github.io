@@ -94,39 +94,22 @@ footer {
   box-shadow: 0 0 0 2px #FFA500, 0 0 8px #FFA50044;
   transition: color 0.2s, background 0.2s;
   overflow: hidden;
-}
-.spoiler:not(.revealed) {
-  color: #FFA50000; /* полностью прозрачный текст */
-}
-.spoiler:not(.revealed)::before,
-.spoiler:not(.revealed)::after {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #FFA500;
-  margin: 0 2px;
   vertical-align: middle;
-  image-rendering: pixelated;
-}
-.spoiler:not(.revealed)::before {
-  margin-left: 0;
-}
-.spoiler:not(.revealed)::after {
-  margin-right: 0;
-}
-.spoiler.revealed {
-  color: #FFA500;
-  background: #181818;
-}
-.spoiler.revealed::before,
-.spoiler.revealed::after {
-  display: none;
 }
 .spoiler-label {
+  color: #FFA500;
+  background: transparent;
   display: inline;
 }
 .spoiler-content {
+  display: none;
+  color: #FFA500;
+  background: transparent;
+}
+.spoiler:not(.revealed) .spoiler-label {
+  display: inline;
+}
+.spoiler:not(.revealed) .spoiler-content {
   display: none;
 }
 .spoiler.revealed .spoiler-label {
@@ -134,4 +117,12 @@ footer {
 }
 .spoiler.revealed .spoiler-content {
   display: inline;
+}
+.spoiler:not(.revealed)::before,
+.spoiler:not(.revealed)::after {
+  display: none;
+}
+.spoiler.revealed::before,
+.spoiler.revealed::after {
+  display: none;
 }
