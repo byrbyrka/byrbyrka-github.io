@@ -123,3 +123,15 @@ footer {
 .spoiler.revealed::after {
   display: none;
 }
+.spoiler-label {
+  display: inline;
+}
+.spoiler-content {
+  display: none;
+}
+.spoiler.revealed .spoiler-label {
+  display: none;
+}
+.spoiler.revealed .spoiler-content {
+  display: inline;
+}
