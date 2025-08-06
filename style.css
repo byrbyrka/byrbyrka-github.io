@@ -1,64 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-body {
-  background: #111;
-  color: #FFA500;
-  font-family: 'Press Start 2P', monospace;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bio-container {
+// ... existing code ...
+.spoiler {
+  position: relative;
   background: #181818;
-  border: 4px solid #FFA500;
-  border-radius: 12px;
-  box-shadow: 0 0 24px #FFA50044;
-  padding: 32px 24px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-}
-
-.pixel {
-  font-family: 'Press Start 2P', monospace;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  color: #ffb84d;
-  font-size: 0.8em;
-  margin-top: 8px;
-  margin-bottom: 16px;
-}
-
-.bio-section {
-  margin: 24px 0 16px 0;
-  font-size: 0.95em;
-}
-
-.socials-section {
-  margin: 16px 0 24px 0;
-}
-
-.socials-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.socials-list li {
-  margin: 10px 0;
-}
-
-.socials-list a {
   color: #FFA500;
-  text-decoration: none;
-  background: #222;
   border: 2px solid #FFA500;
-  border-radius: 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+  box-shadow: 0 0 0 2px #FFA500, 0 0 8px #FFA50044;
+  transition: color 0.2s, background 0.2s;
+  overflow: hidden;
+}
+.spoiler:not(.revealed) {
+  color: #FFA50000; /* полностью прозрачный текст */
+}
+.spoiler:not(.revealed)::before,
+.spoiler:not(.revealed)::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #FFA500;
+  margin: 0 2px;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+.spoiler:not(.revealed)::before {
+  margin-left: 0;
+}
+.spoiler:not(.revealed)::after {
+  margin-right: 0;
+}
+.spoiler.revealed {
+  color: #FFA500;
+  background: #181818;
+}
+.spoiler.revealed::before,
+.spoiler.revealed::after {
+  display: none;
+}
+// ... existing code ...r-radius: 6px;
   padding: 6px 18px;
   display: inline-block;
   transition: background 0.2s, color 0.2s;
@@ -75,4 +60,49 @@ footer {
   font-size: 0.7em;
   color: #ffb84d;
   opacity: 0.8;
+}
+
+.spoiler {
+  position: relative;
+  background: #181818;
+  color: #FFA500;
+  border: 2px solid #FFA500;
+  border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+  box-shadow: 0 0 0 2px #FFA500, 0 0 8px #FFA50044;
+  transition: color 0.2s, background 0.2s;
+  overflow: hidden;
+}
+.spoiler:not(.revealed) {
+  color: #FFA50000; /* полностью прозрачный текст */
+}
+.spoiler:not(.revealed)::before,
+.spoiler:not(.revealed)::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #FFA500;
+  margin: 0 2px;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+.spoiler:not(.revealed)::before {
+  margin-left: 0;
+}
+.spoiler:not(.revealed)::after {
+  margin-right: 0;
+}
+.spoiler.revealed {
+  color: #FFA500;
+  background: #181818;
+}
+.spoiler.revealed::before,
+.spoiler.revealed::after {
+  display: none;
 }
